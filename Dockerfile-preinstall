@@ -1,0 +1,3 @@
+FROM csgo
+
+RUN /usr/src/install-csgo.sh
