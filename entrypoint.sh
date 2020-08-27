@@ -18,7 +18,7 @@ fi
 export LD_LIBRARY_PATH="/usr/src/csgo/bin:/usr/src/csgo:$LD_LIBRARY_PATH"
 exec /usr/src/csgo/srcds_linux \
 	-game csgo \
-	-net_port_tru 1 \
+	-net_port_try 1 \
 	-ip 0.0.0.0 \
 	-tickrate ${CSGO_TICKRATE:-128} \
 	-port ${CSGO_GAME_PORT:-27015} \
