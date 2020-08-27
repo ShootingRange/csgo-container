@@ -19,3 +19,7 @@ Name | Default | Description
 `CSGO_MAP` | `de_dust2` | First map loaded
 `CSGO_GSLT` | *none* | GSLT token, get one from https://steamcommunity.com/dev/managegameservers
 `DISABLE_AUTOUPDATE` | *empty* | Setting this disables automatic updating of CS:GO during container startup
+
+## Workshop maps
+
+See https://developer.valvesoftware.com/wiki/CSGO_Workshop_For_Server_Operators
