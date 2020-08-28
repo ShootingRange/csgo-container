@@ -20,14 +20,14 @@ exec /usr/src/csgo/srcds_linux \
 	-game csgo \
 	-net_port_try 1 \
 	-ip 0.0.0.0 \
-	-tickrate ${CSGO_TICKRATE:-128} \
-	-port ${CSGO_GAME_PORT:-27015} \
+	-tickrate "${CSGO_TICKRATE:-128}" \
+	-port "${CSGO_GAME_PORT:-27015}" \
 	-lan 0 \
 	-usercon \
-	-maxplayers ${GSGO_MAXPLAYER:-10} \
+	-maxplayers "${GSGO_MAXPLAYER:-10}" \
 	+sv_lan 0 \
-	+sv_setsteamaccount ${CSGO_GSLT} \
-	+mapgroup ${CSGO_MAPGROUP:-mp_active} \
-	+map ${CSGO_MAP:-de_dust2} \
+	+sv_setsteamaccount "${CSGO_GSLT}" \
+	+mapgroup "${CSGO_MAPGROUP:-mp_active}" \
+	+map "${CSGO_MAP:-de_dust2}" \
 	+exec "instance.cfg" \
-	$@
+	"$@"
