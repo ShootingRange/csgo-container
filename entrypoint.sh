@@ -3,7 +3,7 @@
 # Install or update CS:GO
 if [ ! -d "/usr/src/csgo" ]; then
 	/usr/src/install-csgo.sh	
-else
+elif [ -z "${DISABLE_AUTOUPDATE}" ]; then
 	/usr/src/update-csgo.sh
 fi
 
