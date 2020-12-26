@@ -27,7 +27,7 @@ exec /usr/src/csgo/srcds_linux \
 	-maxplayers "${GSGO_MAXPLAYER:-10}" \
 	+sv_lan 0 \
 	+sv_setsteamaccount "${CSGO_GSLT}" \
-	+mapgroup "${CSGO_MAPGROUP:-mp_active}" \
+	+mapgroup "${CSGO_MAPGROUP:-mg_active}" \
 	+map "${CSGO_MAP:-de_dust2}" \
 	+exec "instance.cfg" \
 	"$@"

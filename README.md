@@ -15,7 +15,7 @@ Name | Default | Description
 `CSGO_TICKRATE` | `128` | Tickrate
 `CSGO_GAME_PORT` | `27015` | Game and RCON port
 `CSGO_MAXPLAYER` | `10` | Max number of players. Increase to allow for spectators
-`CSGO_MAPGROUP` | `mp_active` | List of maps used during auto rotation. Defaults to maps in active duty
+`CSGO_MAPGROUP` | `mg_active` | List of maps used during auto rotation. Defaults to maps in active duty
 `CSGO_MAP` | `de_dust2` | First map loaded
 `CSGO_GSLT` | *none* | GSLT token, get one from https://steamcommunity.com/dev/managegameservers
 `DISABLE_AUTOUPDATE` | *empty* | Setting this disables automatic updating of CS:GO during container startup
