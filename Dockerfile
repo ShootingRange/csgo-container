@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 RUN dpkg --add-architecture i386 && \
 	apt-get update -y && \
-	apt-get -y install wget libcurl3:i386
+	apt-get -y install wget libcurl3:i386 libsdl2-2.0-0:i386
 
 RUN mkdir /usr/src/steamcmd /usr/src/csgo
 WORKDIR /usr/src
