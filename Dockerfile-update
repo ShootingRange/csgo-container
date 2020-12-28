@@ -1,0 +1,5 @@
+FROM csgo:preinstall
+
+COPY update-csgo.sh /usr/src/
+
+RUN /bin/bash /usr/src/update-csgo.sh
