@@ -1,3 +1,5 @@
 FROM csgo
 
+COPY install-csgo.sh /usr/src/
+
 RUN /bin/bash /usr/src/install-csgo.sh
