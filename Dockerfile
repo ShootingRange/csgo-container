@@ -13,4 +13,4 @@ RUN wget "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
 COPY entrypoint.sh install-csgo.sh update-csgo.sh ./
 RUN chmod a+rwx entrypoint.sh install-csgo.sh update-csgo.sh
 
-ENTRYPOINT /usr/src/entrypoint.sh
+ENTRYPOINT /bin/bash /usr/src/entrypoint.sh
