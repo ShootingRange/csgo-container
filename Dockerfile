@@ -10,6 +10,9 @@ RUN wget "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
 	tar -xf steamcmd_linux.tar.gz -C ./steamcmd && \
 	rm steamcmd_linux.tar.gz
 
+# Fixes server complaining about failing to load steamclient.so
+RUN mkdir -p /root/.steam/sdk32 && ln -s /usr/src/steamcmd/linux32/steamclient.so /root/.steam/sdk32/steamclient.so
+
 COPY entrypoint.sh install-csgo.sh update-csgo.sh ./
 RUN chmod a+rwx entrypoint.sh install-csgo.sh update-csgo.sh
 
