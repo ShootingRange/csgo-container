@@ -1,0 +1,43 @@
+FROM csgo:preinstall
+
+ENV METAMOD_URL "https://mms.alliedmods.net/mmsdrop/1.11/mmsource-1.11.0-git1144-linux.tar.gz"
+ENV SOURCEMOD_URL "https://sm.alliedmods.net/smdrop/1.10/sourcemod-1.10.0-git6502-linux.tar.gz"
+ENV GET5_URL "https://github.com/splewis/get5/releases/download/0.7.1/get5_0.7.1.zip"
+ENV GET5_APISTATS_URL "https://github.com/PhlexPlexico/get5-web/releases/download/1.0/get5_apistats.smx"
+ENV SYSTEM2_URL "https://github.com/dordnung/System2/releases/download/v3.2.1/system2.zip"
+ENV STEAMWORKS_URL "http://users.alliedmods.net/~kyles/builds/SteamWorks/SteamWorks-git132-linux.tar.gz"
+
+WORKDIR /usr/src
+
+RUN apt-get update -y && \
+	apt-get -y install zip
+
+RUN mkdir -p ./csgo/csgo/addons/sourcemod/plugins
+
+# Download
+RUN wget --output-document ./mmsource-linux.tar.gz "$METAMOD_URL" && \
+    wget --output-document ./sourcemod-linux.tar.gz "$SOURCEMOD_URL" && \
+    wget --output-document ./get5.zip "$GET5_URL" && \
+    wget --output-document ./csgo/csgo/addons/sourcemod/plugins/get5_apistats.smx "$GET5_APISTATS_URL" && \
+    wget --output-document ./system2.zip --verbose "$SYSTEM2_URL" && \
+    wget --output-document ./steamworks.tar.gz "$STEAMWORKS_URL"
+
+# Extract
+RUN unzip ./get5.zip -d ./csgo/csgo/ && \
+    tar --exclude LICENSE --exclude README.md -xf mmsource-linux.tar.gz --directory ./csgo/csgo && \
+    tar --exclude LICENSE --exclude README.md -xf sourcemod-linux.tar.gz --directory ./csgo/csgo && \
+    unzip ./system2.zip -d ./csgo/csgo/addons/sourcemod/
+
+# Fix system2 perissions
+RUN chmod a+rwx ./csgo/csgo/addons/sourcemod/extensions/system2.ext.so \
+     ./csgo/csgo/addons/sourcemod/scripting/system2_http.sp \
+     ./csgo/csgo/addons/sourcemod/scripting/system2_test.sp \
+     ./csgo/csgo/addons/sourcemod/scripting/include/system2.inc \
+     ./csgo/csgo/addons/sourcemod/scripting/include/system2/legacy.inc \
+     ./csgo/csgo/addons/sourcemod/scripting/include/system2/request.inc
+
+## Set permissions
+RUN chmod a=rwx -R ./csgo/csgo/addons ./csgo/csgo/cfg
+
+# Remove archive
+RUN rm ./mmsource-linux.tar.gz ./sourcemod-linux.tar.gz ./get5.zip ./system2.zip ./steamworks.tar.gz
