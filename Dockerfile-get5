@@ -9,8 +9,9 @@ ENV STEAMWORKS_URL "http://users.alliedmods.net/~kyles/builds/SteamWorks/SteamWo
 
 WORKDIR /usr/src
 
+# Install zip for unpacking get5, and libstdc++6 because metamod needs it
 RUN apt-get update -y && \
-	apt-get -y install zip
+	apt-get -y install zip libstdc++6:i386
 
 RUN mkdir -p ./csgo/csgo/addons/sourcemod/plugins
 
