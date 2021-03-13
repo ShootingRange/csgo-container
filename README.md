@@ -19,3 +19,22 @@ Name | Default | Description
 `CSGO_MAP` | `de_dust2` | First map loaded
 `CSGO_GSLT` | *none* | GSLT token, get one from https://steamcommunity.com/dev/managegameservers using the app ID 730
 `DISABLE_AUTOUPDATE` | *empty* | Setting this disables automatic updating of CS:GO during container startup
+
+## Build instructions
+
+To build the base image that will install CS:GO on boot run:
+
+```sh
+docker build --tag=csgo .
+```
+
+
+To build a container with CS:GO pre-downloaded run:
+
+*You need to build the base image first*
+
+```sh
+docker build --tag=csgo:preinstall --file=Dockerfile-preinstall .
+```
+
+To update the `preinstall` image without having to redownload and rebuild the container from scratch use the file `Dockerfile-update`.
