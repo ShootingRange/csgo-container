@@ -17,5 +17,5 @@ Name | Default | Description
 `CSGO_MAXPLAYER` | `10` | Max number of players. Increase to allow for spectators
 `CSGO_MAPGROUP` | `mg_active` | List of maps used during auto rotation. Defaults to maps in active duty
 `CSGO_MAP` | `de_dust2` | First map loaded
-`CSGO_GSLT` | *none* | GSLT token, get one from https://steamcommunity.com/dev/managegameservers
+`CSGO_GSLT` | *none* | GSLT token, get one from https://steamcommunity.com/dev/managegameservers using the app ID 730
 `DISABLE_AUTOUPDATE` | *empty* | Setting this disables automatic updating of CS:GO during container startup
