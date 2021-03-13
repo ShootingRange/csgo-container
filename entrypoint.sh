@@ -22,12 +22,10 @@ exec /usr/src/csgo/srcds_linux \
 	-ip 0.0.0.0 \
 	-tickrate "${CSGO_TICKRATE:-128}" \
 	-port "${CSGO_GAME_PORT:-27015}" \
-	-lan 1 \
 	-usercon \
 	-maxplayers "${GSGO_MAXPLAYER:-10}" \
-	+sv_lan 1 \
 	+sv_setsteamaccount "${CSGO_GSLT}" \
 	+mapgroup "${CSGO_MAPGROUP:-mg_active}" \
 	+map "${CSGO_MAP:-de_dust2}" \
-	+exec "instance.cfg" \
-	"$@"
+	"$@" \
+	+exec "instance.cfg"
