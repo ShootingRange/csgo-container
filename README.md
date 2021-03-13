@@ -1,12 +1,12 @@
 # CS:GO container
 
-The Counter Strike: Global Offensive server packaged into minimalist container.
+The Counter Strike: Global Offensive server packaged into a minimalist container.
 
 ## Configuration
 
-The server will automaticly execute the `/usr/src/csgo/csgo/cfg/instance.cfg` config. If further configuration files needs to be loaded add a `+exec $CFG_FILE` argument to the commandline, and drop the configuration file in `/usr/src/csgo/csgo/cfg/*.cfg`. Take care not use `exec` statement inside configuration files loaded using a `exec` statement since this will result in nothing happening.
+The server will automaticly execute the `/usr/src/csgo/csgo/cfg/instance.cfg` config. If further configuration files needs to be loaded add a `+exec $CFG_FILE` argument to the commandline, and drop the configuration file in `/usr/src/csgo/csgo/cfg/*.cfg`. Take care not to use `exec` statements inside configuration files loaded via an `exec` statement since this will result in nothing happening.
 
-The environment variable `CSGO_GSLT` has too be set too a valid GSLT token. Get one from https://steamcommunity.com/dev/managegameservers
+The environment variable `CSGO_GSLT` has too be set to a valid GSLT token. Get one from https://steamcommunity.com/dev/managegameservers
 
 A couple of settings come preconfigured and can be overridden by setting some environment variables as listed in the below table:
 
