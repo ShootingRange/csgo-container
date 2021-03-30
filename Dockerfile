@@ -16,4 +16,4 @@ RUN mkdir -p /root/.steam/sdk32 && ln -s /usr/src/steamcmd/linux32/steamclient.s
 COPY entrypoint.sh install-csgo.sh update-csgo.sh ./
 RUN chmod a+rwx entrypoint.sh install-csgo.sh update-csgo.sh
 
-ENTRYPOINT /bin/bash /usr/src/entrypoint.sh
+ENTRYPOINT ["/usr/src/entrypoint.sh"]
