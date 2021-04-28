@@ -27,7 +27,8 @@ RUN wget --output-document ./mmsource-linux.tar.gz "$METAMOD_URL" && \
 RUN unzip ./get5.zip -d ./csgo/csgo/ && \
     tar --exclude LICENSE --exclude README.md -xf mmsource-linux.tar.gz --directory ./csgo/csgo && \
     tar --exclude LICENSE --exclude README.md -xf sourcemod-linux.tar.gz --directory ./csgo/csgo && \
-    unzip ./system2.zip -d ./csgo/csgo/addons/sourcemod/
+    unzip ./system2.zip -d ./csgo/csgo/addons/sourcemod/ && \
+	tar -xf steamworks.tar.gz --directory ./csgo/csgo
 
 # Fix system2 perissions
 RUN chmod a+rwx ./csgo/csgo/addons/sourcemod/extensions/system2.ext.so \
