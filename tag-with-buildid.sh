@@ -7,12 +7,12 @@ CONTAINER="$1"
 docker run --rm --entrypoint=/usr/bin/test "${CONTAINER}" -f /usr/src/csgo/steamapps/appmanifest_740.acf || exit 1
 
 # Extract buildid from the appmanifest
-BUILDID="$(docker run --rm --entrypoint=/bin/sh $CONTAINER /usr/src/helper-installed-buildid.sh)"
+BUILDID="$(docker run --rm --entrypoint=/bin/sh "${CONTAINER}" /usr/src/helper-installed-buildid.sh)"
 
 # Build the new tag
 # Check if the container name already contains a tag
-echo "${CONTAINER}" | grep ":" >/dev/null
-if [ "$?" -ne 0 ]; then
+
+if ! echo "${CONTAINER}" | grep ":" >/dev/null; then
 	TAGGED_CONTAINER="${CONTAINER}:buildid-${BUILDID}"
 else
 	TAGGED_CONTAINER="${CONTAINER}-buildid-${BUILDID}"
