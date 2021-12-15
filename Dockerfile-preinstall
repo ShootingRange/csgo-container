@@ -1,4 +1,5 @@
-FROM csgo
+ARG BASE_IMAGE=csgo
+FROM $BASE_IMAGE
 
 COPY install-csgo.sh /usr/src/
 

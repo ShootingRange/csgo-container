@@ -1,4 +1,5 @@
-FROM csgo:preinstall
+ARG BASE_IMAGE=csgo:preinstall
+FROM $BASE_IMAGE
 
 COPY update-csgo.sh /usr/src/
 
